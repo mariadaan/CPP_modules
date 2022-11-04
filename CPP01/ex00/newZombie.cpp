@@ -1,9 +1,12 @@
 #include "Zombie.hpp"
 
 /*
-Create a zombie, name it, and return it so you can use it outside of the function scope.
+	Create a zombie, name it, and return it so you can use it
+	outside of the function scope.
 */
-Zombie *newZombie(std::string name)
+Zombie *Zombie::newZombie(std::string name)
 {
-	Zombie
+	Zombie *heapZombie = new Zombie();
+	heapZombie->setName(name);
+	return (heapZombie);
 }

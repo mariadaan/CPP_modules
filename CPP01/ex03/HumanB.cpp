@@ -31,7 +31,6 @@ Weapon &HumanB::getWeapon(void)
 HumanB::HumanB(void)
 {
 	std::cout << "Construct human B" << std::endl;
-	// _weapon = NULL;
 	return;
 }
 

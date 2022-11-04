@@ -6,3 +6,4 @@ account
 zombie
 .DS_Store
 .vscode
+*.dSYM

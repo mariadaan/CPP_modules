@@ -20,7 +20,6 @@ std::string HumanB::getName(void)
 void HumanB::setWeapon(Weapon &weapon)
 {
 	this->_weapon = &weapon;
-	weapon.setType("gun");
 }
 
 Weapon &HumanB::getWeapon(void)
@@ -28,15 +27,15 @@ Weapon &HumanB::getWeapon(void)
 	return *(this->_weapon);
 }
 
-HumanB::HumanB(void)
+HumanB::HumanB(std::string name)
 {
-	std::cout << "Construct human B" << std::endl;
+	setName(name);
+	std::cout << "Construct human B: " << name << std::endl;
 	return;
 }
 
 HumanB::~HumanB(void)
 {
-	std::cout << "Destruct human B" << std::endl;
-	std::cout << _name << " is destroyed." << std::endl;
+	std::cout << "Destruct human B: " << _name << std::endl;
 	return;
 }

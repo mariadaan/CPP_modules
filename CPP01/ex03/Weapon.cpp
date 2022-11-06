@@ -10,8 +10,9 @@ void Weapon::setType(std::string type)
 	this->_type = type;
 }
 
-Weapon::Weapon(void)
+Weapon::Weapon(std::string type)
 {
+	setType(type);
 	std::cout << "Construct weapon" << std::endl;
 	return;
 }

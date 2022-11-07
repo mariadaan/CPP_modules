@@ -1,5 +1,5 @@
 NAME = mysed
-SRCS = main.cpp
+SRCS = main.cpp sed.cpp
 OBJS = $(SRCS:.cpp=.o)
 FLAGS = -std=c++98 -pedantic
 CC = c++
@@ -17,9 +17,13 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f *.replace
 
 recept: all
 	./mysed recept olijfolie zonnebloemolie
+
+boter: all
+	./mysed recept olijfolie boter
 
 nieuws: all
 	./mysed nieuws "." "!"

@@ -16,11 +16,11 @@ void replaceLine(std::string &line, std::string &s1, std::string &s2)
 int replaceFile(std::string &filename, std::string &s1, std::string &s2)
 {
 	std::string line;
-	std::ifstream ini_file(filename.c_str());
+	std::ifstream in_file(filename.c_str());
 	std::ofstream out_file((filename + ".replace").c_str());
-	if (ini_file && out_file)
+	if (in_file && out_file)
 	{
-		while (getline(ini_file, line))
+		while (getline(in_file, line))
 		{
 			replaceLine(line, s1, s2);
 			out_file << line << std::endl;
@@ -31,7 +31,7 @@ int replaceFile(std::string &filename, std::string &s1, std::string &s2)
 		std::cout << "Can not read file" << std::endl;
 		return (0);
 	}
-	ini_file.close();
+	in_file.close();
 	out_file.close();
 	return (1);
 }

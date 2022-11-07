@@ -28,4 +28,16 @@ boter: all
 nieuws: all
 	./mysed nieuws "." "!"
 
+nofile: all
+	./mysed nofile blabla blablaaa
+
+nostr: all
+	./mysed recept "" blablaaa
+
+noargs: all
+	./mysed
+
+toomanyargs: all
+	./mysed recept olijfolie boter jaa jaaaa
+
 re: fclean all

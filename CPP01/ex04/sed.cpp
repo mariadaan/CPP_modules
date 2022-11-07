@@ -20,10 +20,12 @@ int replaceFile(std::string &filename, std::string &s1, std::string &s2)
 	std::ofstream out_file((filename + ".replace").c_str());
 	if (in_file && out_file)
 	{
-		while (getline(in_file, line))
+		while (std::getline(in_file, line))
 		{
 			replaceLine(line, s1, s2);
-			out_file << line << std::endl;
+			out_file << line;
+			if (!in_file.eof())
+				out_file << std::endl;
 		}
 	}
 	else

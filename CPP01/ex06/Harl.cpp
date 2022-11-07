@@ -42,7 +42,8 @@ void Harl::complain(std::string level)
 	int jump_index = getJumpIndex(level);
 	if (jump_index == -1)
 		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-	switch (jump_index) {
+	switch (jump_index)
+	{
 	case 0:
 	{
 		std::cout << "[ DEBUG ]" << std::endl;

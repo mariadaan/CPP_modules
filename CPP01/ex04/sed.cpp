@@ -4,7 +4,7 @@
 void replaceLine(std::string &line, std::string &s1, std::string &s2)
 {
 	std::size_t s1_index = line.find(s1);
-	while (s1_index != -1 && s1_index != std::string::npos)
+	while (s1_index != (std::size_t)-1 && s1_index != std::string::npos)
 	{
 		line.erase(s1_index, s1.length());
 		line.insert(s1_index, s2);

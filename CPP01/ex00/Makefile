@@ -1,7 +1,7 @@
 NAME = zombie
 SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 OBJS = $(SRCS:.cpp=.o)
-FLAGS = -Wall -Wextra -std=c++98 -pedantic
+FLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 CC = c++
 INCLUDES = Zombie.hpp
 

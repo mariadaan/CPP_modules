@@ -1,7 +1,7 @@
 NAME = mysed
 SRCS = main.cpp sed.cpp
 OBJS = $(SRCS:.cpp=.o)
-FLAGS = -std=c++98 -pedantic
+FLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 CC = c++
 
 all: $(NAME)

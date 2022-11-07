@@ -1,7 +1,7 @@
 NAME = welcome
 SRCS = main.cpp
 OBJS = $(SRCS:.cpp=.o)
-FLAGS = -Wall -Wextra -std=c++98 -pedantic
+FLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 CC = c++
 
 all: $(NAME)

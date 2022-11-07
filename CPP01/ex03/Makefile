@@ -1,7 +1,7 @@
 NAME = weapons
 SRCS = main.cpp Weapon.cpp HumanB.cpp HumanA.cpp
 OBJS = $(SRCS:.cpp=.o)
-FLAGS = -Wall -Wextra -std=c++98 -pedantic
+FLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 CC = c++
 INCLUDES = Weapon.hpp HumanB.hpp HumanA.hpp
 

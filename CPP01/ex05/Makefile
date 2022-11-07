@@ -1,7 +1,7 @@
 NAME = harl
 SRCS = Harl.cpp main.cpp
 OBJS = $(SRCS:.cpp=.o)
-FLAGS = -g -fsanitize=address -Wall -Wextra -std=c++98 -pedantic
+FLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 CC = c++
 INCLUDES = Harl.hpp
 
@@ -20,6 +20,6 @@ fclean: clean
 	rm -f $(NAME)
 
 debug: all
-	./account
+	./harl
 
 re: fclean all

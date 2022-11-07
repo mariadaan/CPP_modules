@@ -3,7 +3,6 @@ SRCS = main.cpp
 OBJS = $(SRCS:.cpp=.o)
 FLAGS = -std=c++98 -pedantic
 CC = c++
-# INCLUDES = Weapon.hpp HumanB.hpp HumanA.hpp
 
 all: $(NAME)
 
@@ -19,8 +18,10 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-debug: all
-	./mysed testtekst.txt olijfolie zonnebloemolie
+recept: all
+	./mysed recept olijfolie zonnebloemolie
 
+nieuws: all
+	./mysed nieuws "." "!"
 
 re: fclean all

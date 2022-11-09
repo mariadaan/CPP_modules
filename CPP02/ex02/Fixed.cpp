@@ -20,11 +20,6 @@ void Fixed::setRawBits(int const fixedPointValue)
 	this->_fixedPointValue = fixedPointValue;
 }
 
-int Fixed::getFractionalBits(void)
-{
-	return (this->_fractionalBits);
-}
-
 /* Constructor */
 Fixed::Fixed(void)
 {
@@ -45,7 +40,7 @@ Fixed::Fixed(const int intValue)
 Fixed::Fixed(const float floatValue)
 {
 	// std::cout << "Float constructor called" << std::endl;
-	this->_fixedPointValue = floatValue * (1 << this->_fractionalBits);
+	this->_fixedPointValue = (int)roundf(floatValue * (1 << _fractionalBits));
 	return;
 }
 

@@ -13,11 +13,10 @@ public:
 	Fixed(Fixed const &fixedNumber);
 	Fixed &operator=(Fixed const &fixedNumber);
 	~Fixed(void);
-	int getRawBits(void) const;
-	void setRawBits(int const raw);
-	int getFractionalBits(void);
-	float toFloat(void) const;
-	int toInt(void) const;
+	int		getRawBits(void) const;
+	void	setRawBits(int const raw);
+	float	toFloat(void) const;
+	int		toInt(void) const;
 
 	bool operator==(const Fixed &fixedNumber2) const;
 	bool operator!=(const Fixed &fixedNumber2) const;
@@ -36,8 +35,14 @@ public:
 	Fixed &operator--(void);
 	Fixed operator--(int);
 
-	static Fixed &max(Fixed &fixedNumber1, Fixed &fixedNumber2);
+	static Fixed max(Fixed &fixedNumber1, Fixed &fixedNumber2);
 	static Fixed max(const Fixed &fixedNumber1, const Fixed &fixedNumber2);
+	static Fixed min(Fixed &fixedNumber1, Fixed &fixedNumber2);
+	static Fixed min(const Fixed &fixedNumber1, const Fixed &fixedNumber2);
+	
+
+	// static Fixed	max( Fixed &fixed1, Fixed &fixed2);
+	// static Fixed	max( const Fixed &fixed1, const Fixed &fixed2);
 
 
 

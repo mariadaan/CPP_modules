@@ -3,7 +3,7 @@
 
 int Fixed::getRawBits(void) const
 {
-	std::cout << "getRawbits member function called" << std::endl;
+	std::cout << "getRawBits member function called" << std::endl;
 	return (this->_fixedPointValue);
 }
 
@@ -26,8 +26,8 @@ Fixed::Fixed(void)
 Fixed::Fixed(Fixed &fixedNumber)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	// fixedNumber = fixedNumber;
-	_fixedPointValue = fixedNumber.getRawBits();
+	*this = fixedNumber;
+	// _fixedPointValue = fixedNumber.getRawBits();
 	return;
 }
 

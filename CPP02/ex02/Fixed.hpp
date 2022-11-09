@@ -2,6 +2,7 @@
 #define FIXED_HPP
 
 #include <iostream>
+#include <cmath>
 
 class Fixed
 {
@@ -18,12 +19,12 @@ public:
 	float toFloat(void) const;
 	int toInt(void) const;
 
-	bool operator==(const Fixed &fixedNumber2);
-	bool operator!=(const Fixed &fixedNumber2);
-	bool operator<(const Fixed &fixedNumber2);
-	bool operator>(const Fixed &fixedNumber2);
-	bool operator>=(const Fixed &fixedNumber2);
-	bool operator<=(const Fixed &fixedNumber2);
+	bool operator==(const Fixed &fixedNumber2) const;
+	bool operator!=(const Fixed &fixedNumber2) const;
+	bool operator<(const Fixed &fixedNumber2) const;
+	bool operator>(const Fixed &fixedNumber2) const;
+	bool operator>=(const Fixed &fixedNumber2) const;
+	bool operator<=(const Fixed &fixedNumber2) const;
 
 	Fixed operator+(const Fixed &fixedNumber2) const;
 	Fixed operator-(const Fixed &fixedNumber2) const;
@@ -32,6 +33,12 @@ public:
 
 	Fixed &operator++(void);
 	Fixed operator++(int);
+	Fixed &operator--(void);
+	Fixed operator--(int);
+
+	static Fixed &max(Fixed &fixedNumber1, Fixed &fixedNumber2);
+	static Fixed max(const Fixed &fixedNumber1, const Fixed &fixedNumber2);
+
 
 
 

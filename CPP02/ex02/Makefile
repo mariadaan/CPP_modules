@@ -3,7 +3,8 @@ SRCS =	main.cpp				\
 		Fixed.cpp				\
 		ComparisonOperators.cpp	\
 		ArethmeticOperators.cpp	\
-		IncrementOperators.cpp
+		IncrementOperators.cpp	\
+		FixedMembers.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 FLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic

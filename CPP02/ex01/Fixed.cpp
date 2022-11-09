@@ -2,12 +2,12 @@
 
 float Fixed::toFloat(void) const
 {
-	return ((float)this->_fixedPointValue / (float)(1 << this->_fractionalBits));
+	return((float)this->_fixedPointValue / (1 << this->_fractionalBits));
 }
 
 int Fixed::toInt(void) const
 {
-	return (this->_fixedPointValue >> this->_fractionalBits);
+	return ((int)(roundf((float)this->_fixedPointValue / (1 << this->_fractionalBits))));
 }
 
 int Fixed::getRawBits(void) const

@@ -60,6 +60,7 @@ Fixed &Fixed::operator=(Fixed const &fixedNumber)
 	return *this;
 }
 
+/* Fixed to output stream operator */
 std::ostream &operator<<(std::ostream &os, const Fixed &fixedNumber)
 {
 	os << fixedNumber.toFloat();

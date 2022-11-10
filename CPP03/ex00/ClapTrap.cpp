@@ -34,10 +34,9 @@ ClapTrap::~ClapTrap(void)
 }
 
 /*
-	target:
-	- call takeDamage()
-		- loses attackDamage amount hitPoints (hitPoints - attackDamage)
-	
+	target: (happens in takedamage)
+	- loses attackDamage amount hitPoints (hitPoints - attackDamage)
+
 	ClapTrap (this):
 	- loses 1 energy point
 */
@@ -45,13 +44,12 @@ void	ClapTrap::attack(const std::string &target)
 {
 	std::string str;
 
-	str = "ClapTrap <name> attacks <target>, causing <damage> points of damage!\n";
+	str = "ClapTrap <name> attacks <target>, causing <damage> points of damage.\n";
 	str.replace(str.find("<name>"), 6, this->_name);
 	str.replace(str.find("<target>"), 8, target);
 	str.replace(str.find("<damage>"), 8, std::to_string(this->_attackDamage));
 	std::cout << str;
 	this->_energyPoints--;
-	// takeDamage(this->_attackDamage); // ???
 }
 
 /*
@@ -59,6 +57,11 @@ void	ClapTrap::attack(const std::string &target)
 */
 void	ClapTrap::takeDamage(unsigned int amount)
 {
+	std::string str;
+
+	str = "ClapTrap <name> takes damage, loses <amount> hitpoints.\n";
+	str.replace(str.find("<name>"), 6, this->_name);
+	str.replace(str.find("<amount>"), 8, std::to_string(amount));
 	this->_hitPoints -= amount;
 }
 

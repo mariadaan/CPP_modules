@@ -15,11 +15,12 @@ int main(void)
 	ClapTrap maria("Maria");
 	ClapTrap tessa("Tessa");
 	ClapTrap mares("Mares");
-	mares = tessa;
+	mares = tessa; // test copy constructor
 
 	printProperties(tessa);
 	printProperties(maria);
-	tessa.attack(maria.getName());
+	tessa.attack(maria.getName()); // test attack function
+	maria.takeDamage(tessa.getAttackDamage()); // test damage function
 	printProperties(tessa);
 	printProperties(maria);
 
@@ -28,6 +29,5 @@ int main(void)
 
 /*
 	Vragen:
-	- hoe take damage doen
 	- kost een attack ook energypoints als je geen attackdamage hebt
 */

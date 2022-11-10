@@ -4,7 +4,7 @@ SRCS =	main.cpp				\
 		ComparisonOperators.cpp	\
 		ArethmeticOperators.cpp	\
 		IncrementOperators.cpp	\
-		FixedMembers.cpp
+		MinMax.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 FLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic

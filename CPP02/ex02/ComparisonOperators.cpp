@@ -27,5 +27,5 @@ bool Fixed::operator<=(const Fixed &fixedNumber2) const
 
 bool Fixed::operator>=(const Fixed &fixedNumber2) const
 {
-	return (this->getRawBits() <= fixedNumber2.getRawBits());
+	return (this->getRawBits() >= fixedNumber2.getRawBits());
 }

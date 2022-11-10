@@ -3,7 +3,7 @@
 /* Default constructor */
 ClapTrap::ClapTrap(void)
 {
-	std::cout << "ClapTrap default constructed" << std::endl;
+	std::cout << "ClapTrap default constructed: " << std::endl;
 	this->_name = "";
 	this->_hitPoints = 10;
 	this->_energyPoints = 10;
@@ -23,7 +23,7 @@ ClapTrap::ClapTrap(std::string name)
 /* Copy constructor */
 ClapTrap::ClapTrap(ClapTrap &clapTrapper)
 {
-	std::cout << "ClapTrap copy constructor called" << std::endl;
+	std::cout << "ClapTrap copy constructor copied: " << this->_name << std::endl;
 	*this = clapTrapper;
 }
 

@@ -1,5 +1,5 @@
-NAME = scavtrap
-SRCS = ClapTrap.cpp main.cpp ScavTrap.cpp
+NAME = fragtrap
+SRCS = ClapTrap.cpp main.cpp ScavTrap.cpp FragTrap.cpp
 OBJS = $(SRCS:.cpp=.o)
 FLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 CC = c++
@@ -20,6 +20,6 @@ fclean: clean
 	rm -f $(NAME)
 
 debug: all
-	./scavtrap
+	./fragtrap
 
 re: fclean all

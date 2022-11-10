@@ -28,7 +28,7 @@ ClapTrap::ClapTrap(ClapTrap &clapTrapper)
 }
 
 /* Copy assignment constructor */
-ClapTrap& ClapTrap::operator=(ClapTrap &clapTrapper)
+ClapTrap &ClapTrap::operator=(ClapTrap &clapTrapper)
 {
 	std::cout << "ClapTrap copy assignment operator copied " << clapTrapper.getName() << std::endl;
 	this->_name = clapTrapper.getName();
@@ -51,7 +51,7 @@ ClapTrap::~ClapTrap(void)
 	ClapTrap (this):
 	- loses 1 energy point
 */
-void	ClapTrap::attack(const std::string &target)
+void ClapTrap::attack(const std::string &target)
 {
 	std::string str;
 
@@ -73,14 +73,13 @@ void	ClapTrap::attack(const std::string &target)
 /*
 	- loses attackDamage amount hitPoints (hitPoints - attackDamage)
 */
-void	ClapTrap::takeDamage(unsigned int amount)
+void ClapTrap::takeDamage(unsigned int amount)
 {
 	std::string str;
 
+	if (amount > this->_hitPoints)
+		amount = this->_hitPoints;
 	this->_hitPoints -= amount;
-	if (this->_hitPoints < 0)
-		this->_hitPoints = 0;
-
 	str = "ClapTrap <name> takes damage, loses <amount> hitpoints.\n";
 	str.replace(str.find("<name>"), 6, this->_name);
 	str.replace(str.find("<amount>"), 8, std::to_string(amount));
@@ -92,7 +91,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 	- gains <amount> hitpoints back
 	- loses 1 energy point
 */
-void	ClapTrap::beRepaired(unsigned int amount)
+void ClapTrap::beRepaired(unsigned int amount)
 {
 	std::string str;
 

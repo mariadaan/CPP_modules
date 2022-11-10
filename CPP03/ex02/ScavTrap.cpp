@@ -30,7 +30,7 @@ ScavTrap::ScavTrap(ScavTrap &scavTrapper)
 }
 
 /* Copy assignment constructor */
-ScavTrap& ScavTrap::operator=(ScavTrap &scavTrapper)
+ScavTrap &ScavTrap::operator=(ScavTrap &scavTrapper)
 {
 	std::cout << "ScavTrap copy assignment operator copied " << scavTrapper.getName() << std::endl;
 	this->_name = scavTrapper.getName();
@@ -47,7 +47,7 @@ ScavTrap::~ScavTrap(void)
 	std::cout << "ScavTrap destructed: " << this->_name << std::endl;
 }
 
-bool	ScavTrap::getGateKeeperMode(void)
+bool ScavTrap::getGateKeeperMode(void)
 {
 	return (this->_gateKeeperMode);
 }
@@ -59,7 +59,7 @@ bool	ScavTrap::getGateKeeperMode(void)
 	ScavTrap (this):
 	- loses 1 energy point
 */
-void	ScavTrap::attack(const std::string &target)
+void ScavTrap::attack(const std::string &target)
 {
 	std::string str;
 
@@ -78,7 +78,7 @@ void	ScavTrap::attack(const std::string &target)
 	}
 }
 
-void	ScavTrap::guardGate(void)
+void ScavTrap::guardGate(void)
 {
 	this->_gateKeeperMode = true;
 	std::cout << "ScavTrap " << this->_name << " is now in Gate keeper mode" << std::endl;

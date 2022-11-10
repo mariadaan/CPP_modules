@@ -10,16 +10,16 @@ public:
 	ScavTrap(void);
 	ScavTrap(std::string name);
 	ScavTrap(ScavTrap &scavTrapper);
-	ScavTrap& operator=(ScavTrap &scavTrapper);
+	ScavTrap &operator=(ScavTrap &scavTrapper);
 	~ScavTrap(void);
 
-	bool	getGateKeeperMode(void);
+	bool getGateKeeperMode(void);
 
-	void	attack(const std::string& target);
-	void	guardGate(void);
+	void attack(const std::string &target);
+	void guardGate(void);
 
 private:
-	bool	_gateKeeperMode;
+	bool _gateKeeperMode;
 };
 
 #endif

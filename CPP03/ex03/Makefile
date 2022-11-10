@@ -1,9 +1,9 @@
-NAME = fragtrap
-SRCS = ClapTrap.cpp main.cpp ScavTrap.cpp FragTrap.cpp
+NAME = diamondtrap
+SRCS = ClapTrap.cpp main.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 OBJS = $(SRCS:.cpp=.o)
-FLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
+FLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98 -pedantic
 CC = c++
-INCLUDES = ClapTrap.hpp ScavTrap.hpp
+INCLUDES = ClapTrap.hpp ScavTrap.hpp DiamondTrap.hpp
 
 all: $(NAME)
 
@@ -20,6 +20,6 @@ fclean: clean
 	rm -f $(NAME)
 
 debug: all
-	./fragtrap
+	./diamondtrap
 
 re: fclean all

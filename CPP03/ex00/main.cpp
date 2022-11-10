@@ -19,6 +19,7 @@ int main(void)
 
 	printProperties(tessa);
 	printProperties(maria);
+	printProperties(mares);
 	tessa.attack(maria.getName()); // test attack function
 	maria.takeDamage(tessa.getAttackDamage()); // test damage function
 	printProperties(tessa); // show changes

@@ -48,8 +48,3 @@ int main(void)
 
 	return 0;
 }
-
-/*
-	Vragen:
-	- kost een attack ook energypoints als je geen attackdamage hebt
-*/

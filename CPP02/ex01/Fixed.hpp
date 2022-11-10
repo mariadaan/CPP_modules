@@ -25,6 +25,5 @@ private:
 };
 
 std::ostream& operator<<(std::ostream& os, const Fixed &fixedNumber);
-void randomChump(std::string name);
 
 #endif

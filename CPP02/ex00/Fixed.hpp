@@ -18,6 +18,4 @@ private:
 	static const int _fractionalBits = 8;
 };
 
-void randomChump(std::string name);
-
 #endif

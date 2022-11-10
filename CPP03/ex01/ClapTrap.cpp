@@ -77,10 +77,9 @@ void	ClapTrap::takeDamage(unsigned int amount)
 {
 	std::string str;
 
+	if (amount > this->_hitPoints)
+		amount = this->_hitPoints;
 	this->_hitPoints -= amount;
-	if (this->_hitPoints < 0)
-		this->_hitPoints = 0;
-
 	str = "ClapTrap <name> takes damage, loses <amount> hitpoints.\n";
 	str.replace(str.find("<name>"), 6, this->_name);
 	str.replace(str.find("<amount>"), 8, std::to_string(amount));

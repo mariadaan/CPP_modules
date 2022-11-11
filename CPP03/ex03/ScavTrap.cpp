@@ -23,7 +23,7 @@ ScavTrap::ScavTrap(std::string name)
 }
 
 /* Copy constructor */
-ScavTrap::ScavTrap(ScavTrap &scavTrapper)
+ScavTrap::ScavTrap(ScavTrap &scavTrapper) : ClapTrap(scavTrapper)
 {
 	std::cout << "ScavTrap copy constructor called" << std::endl;
 	*this = scavTrapper;
@@ -61,20 +61,15 @@ bool ScavTrap::getGateKeeperMode(void)
 */
 void ScavTrap::attack(const std::string &target)
 {
-	std::string str;
-
 	if (this->_energyPoints > 0)
 	{
-		str = "ScavTrap <name> attacks <target>, causing <damage> points of damage.\n";
-		str.replace(str.find("<name>"), 6, this->_name);
-		str.replace(str.find("<target>"), 8, target);
-		str.replace(str.find("<damage>"), 8, std::to_string(this->_attackDamage));
-		std::cout << str;
+		std::cout << "Scavtrap " << this->_name << " attacks " << target;
+		std::cout << ", causing " << this->_attackDamage << " points of damage.\n";
 		this->_energyPoints--;
 	}
 	else
 	{
-		std::cout << "ScavTrap " << this->_name << " does not have enough energy points to attack" << std::endl;
+		std::cout << "Scavtrap " << this->_name << " does not have enough energy points to attack";
 	}
 }
 

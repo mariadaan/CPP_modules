@@ -51,17 +51,12 @@ ClapTrap::~ClapTrap(void)
 	ClapTrap (this):
 	- loses 1 energy point
 */
-void ClapTrap::attack(const std::string &target)
+void	ClapTrap::attack(const std::string &target)
 {
-	std::string str;
-
 	if (this->_energyPoints > 0)
 	{
-		str = "ClapTrap <name> attacks <target>, causing <damage> points of damage.\n";
-		str.replace(str.find("<name>"), 6, this->_name);
-		str.replace(str.find("<target>"), 8, target);
-		str.replace(str.find("<damage>"), 8, std::to_string(this->_attackDamage));
-		std::cout << str;
+		std::cout << "Claptrap " << this->_name << " attacks " << target;
+		std::cout << ", causing " << this->_attackDamage << " points of damage.\n";
 		this->_energyPoints--;
 	}
 	else
@@ -73,17 +68,13 @@ void ClapTrap::attack(const std::string &target)
 /*
 	- loses attackDamage amount hitPoints (hitPoints - attackDamage)
 */
-void ClapTrap::takeDamage(unsigned int amount)
+void	ClapTrap::takeDamage(unsigned int amount)
 {
-	std::string str;
-
 	if (amount > this->_hitPoints)
 		amount = this->_hitPoints;
 	this->_hitPoints -= amount;
-	str = "ClapTrap <name> takes damage, loses <amount> hitpoints.\n";
-	str.replace(str.find("<name>"), 6, this->_name);
-	str.replace(str.find("<amount>"), 8, std::to_string(amount));
-	std::cout << str;
+	std::cout << "Claptrap " << this->_name << " takes damage, loses ";
+	std::cout << amount << " hitpoints." << std::endl;
 }
 
 /*
@@ -91,17 +82,15 @@ void ClapTrap::takeDamage(unsigned int amount)
 	- gains <amount> hitpoints back
 	- loses 1 energy point
 */
-void ClapTrap::beRepaired(unsigned int amount)
+void	ClapTrap::beRepaired(unsigned int amount)
 {
-	std::string str;
 
-	str = "ClapTrap <name> repairs itself, gains <amount> hitpoints, loses 1 energy point.\n";
-	str.replace(str.find("<name>"), 6, this->_name);
-	str.replace(str.find("<amount>"), 8, std::to_string(amount));
-	std::cout << str;
+	std::cout << "Claptrap " << this->_name << " repairs itself, gains ";
+	std::cout << amount << " hitpoints, loses 1 energy point." << std::endl;
 	this->_hitPoints += amount;
 	this->_energyPoints--;
 }
+
 
 std::string ClapTrap::getName(void)
 {

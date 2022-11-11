@@ -21,7 +21,7 @@ FragTrap::FragTrap(std::string name)
 }
 
 /* Copy constructor */
-FragTrap::FragTrap(FragTrap &fragTrapper)
+FragTrap::FragTrap(FragTrap &fragTrapper) : ClapTrap(fragTrapper)
 {
 	std::cout << "FragTrap copy constructor called" << std::endl;
 	*this = fragTrapper;
@@ -51,22 +51,17 @@ FragTrap::~FragTrap(void)
 	FragTrap (this):
 	- loses 1 energy point
 */
-void FragTrap::attack(const std::string &target)
+void	FragTrap::attack(const std::string &target)
 {
-	std::string str;
-
 	if (this->_energyPoints > 0)
 	{
-		str = "FragTrap <name> attacks <target>, causing <damage> points of damage.\n";
-		str.replace(str.find("<name>"), 6, this->_name);
-		str.replace(str.find("<target>"), 8, target);
-		str.replace(str.find("<damage>"), 8, std::to_string(this->_attackDamage));
-		std::cout << str;
+		std::cout << "Fragtrap " << this->_name << " attacks " << target;
+		std::cout << ", causing " << this->_attackDamage << " points of damage.\n";
 		this->_energyPoints--;
 	}
 	else
 	{
-		std::cout << "FragTrap " << this->_name << " does not have enough energy points to attack" << std::endl;
+		std::cout << "Fragtrap " << this->_name << " does not have enough energy points to attack";
 	}
 }
 

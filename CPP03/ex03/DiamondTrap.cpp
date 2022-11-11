@@ -22,7 +22,7 @@ DiamondTrap::DiamondTrap(std::string name)
 }
 
 /* Copy constructor */
-DiamondTrap::DiamondTrap(DiamondTrap &diamondTrapper)
+DiamondTrap::DiamondTrap(DiamondTrap &diamondTrapper) : ClapTrap(diamondTrapper), ScavTrap(diamondTrapper), FragTrap(diamondTrapper)
 {
 	std::cout << "DiamondTrap copy constructor called" << std::endl;
 	*this = diamondTrapper;

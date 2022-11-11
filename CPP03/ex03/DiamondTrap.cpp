@@ -14,8 +14,8 @@ DiamondTrap::DiamondTrap(void)
 DiamondTrap::DiamondTrap(std::string name)
 {
 	std::cout << "DiamondTrap constructed: " << name << std::endl;
-	ClapTrap::_name = name + "_clap_name";
 	this->_name = name;
+	ClapTrap::_name = name + "_clap_name";
 	this->_hitPoints = FragTrap::_hitPoints;
 	this->_energyPoints = ScavTrap::_energyPoints;
 	this->_attackDamage = FragTrap::_attackDamage;

@@ -18,7 +18,7 @@ public:
 	void whoAmI(void);
 
 private:
-	std::string name; // same name as in claptrap base class
+	std::string _name; // same name as in claptrap base class
 };
 
 #endif

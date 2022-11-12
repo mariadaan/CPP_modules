@@ -31,6 +31,7 @@ clean		:
 
 fclean		:	clean
 		@rm -rf $(NAME)
+		@rm -rf *.dSYM
 
 re			:	fclean	all
 

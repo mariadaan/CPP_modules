@@ -1,19 +1,19 @@
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef WRONGANIMAL_HPP
+#define WRONGANIMAL_HPP
 
 #include <iostream>
 
-class Animal
+class WrongAnimal
 {
 public:
-	Animal(void);
-	Animal(Animal &animal);
-	Animal &operator=(Animal &animal);
-	virtual ~Animal(void);
+	WrongAnimal(void);
+	WrongAnimal(WrongAnimal &animal);
+	WrongAnimal &operator=(WrongAnimal &animal);
+	virtual ~WrongAnimal(void);
 
 	std::string getType(void) const;
 
-	virtual void makeSound(void) const; // zonder virtual is wrongWrongcat
+	virtual void makeSound(void) const; // zonder virtual is wrongWrongCat
 
 protected:
 	std::string _type;

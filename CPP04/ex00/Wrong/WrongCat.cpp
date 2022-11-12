@@ -1,26 +1,26 @@
-#include "Cat.hpp"
+#include "WrongCat.hpp"
 
 /* Default constructor */
-Cat::Cat(void)
+WrongCat::WrongCat(void)
 {
-	this->_type = "Cat";
-	std::cout << "Cat constructed" << std::endl;
+	this->_type = "WrongCat";
+	std::cout << "WrongCat constructed" << std::endl;
 }
 
 /* Copy constructor */
-Cat::Cat(Cat &animal)
+WrongCat::WrongCat(WrongCat &animal)
 {
-	std::cout << "Cat copy constructor called" << std::endl;
+	std::cout << "WrongCat copy constructor called" << std::endl;
 	*this = animal;
 }
 
 /* Destructor */
-Cat::~Cat(void)
+WrongCat::~WrongCat(void)
 {
-	std::cout << "Cat destructed: " << this->_type << std::endl;
+	std::cout << "WrongCat destructed: " << this->_type << std::endl;
 }
 
-void Cat::makeSound(void) const
+void WrongCat::makeSound(void) const
 {
 	std::cout << "MIAUW" << std::endl;
 }

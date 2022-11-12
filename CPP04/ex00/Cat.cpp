@@ -8,10 +8,10 @@ Cat::Cat(void)
 }
 
 /* Copy constructor */
-Cat::Cat(Cat &animal)
+Cat::Cat(Cat &cat)
 {
 	std::cout << "Cat copy constructor called" << std::endl;
-	*this = animal;
+	*this = cat;
 }
 
 /* Destructor */

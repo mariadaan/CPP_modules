@@ -18,7 +18,7 @@ Animal::Animal(Animal &animal)
 Animal &Animal::operator=(Animal &animal)
 {
 	std::cout << "Animal copy assignment operator copied " << animal.getType() << std::endl;
-	// copy all values
+	this->_type = animal.getType();
 	return animal;
 }
 

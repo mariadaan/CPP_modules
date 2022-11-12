@@ -8,10 +8,10 @@ Dog::Dog(void)
 }
 
 /* Copy constructor */
-Dog::Dog(Dog &animal)
+Dog::Dog(Dog &dog)
 {
 	std::cout << "Dog copy constructor called" << std::endl;
-	*this = animal;
+	*this = dog;
 }
 
 /* Destructor */

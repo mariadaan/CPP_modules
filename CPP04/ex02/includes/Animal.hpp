@@ -13,7 +13,7 @@ public:
 
 	std::string getType(void) const;
 
-	virtual void makeSound(void) const;
+	virtual void makeSound(void) const = 0; // pure virtual function
 
 protected:
 	std::string _type;

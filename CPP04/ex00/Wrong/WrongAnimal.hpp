@@ -13,7 +13,7 @@ public:
 
 	std::string getType(void) const;
 
-	virtual void makeSound(void) const; // zonder virtual is wrongWrongCat
+	void makeSound(void) const; // zonder virtual is wrongWrongCat
 
 protected:
 	std::string _type;

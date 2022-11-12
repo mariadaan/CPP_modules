@@ -4,6 +4,7 @@
 Dog::Dog(void)
 {
 	this->_type = "Dog";
+	this->_brain = new Brain();
 	std::cout << "Dog constructed" << std::endl;
 }
 
@@ -17,6 +18,7 @@ Dog::Dog(Dog &dog)
 /* Destructor */
 Dog::~Dog(void)
 {
+	delete this->_brain;
 	std::cout << "Dog destructed: " << this->_type << std::endl;
 }
 

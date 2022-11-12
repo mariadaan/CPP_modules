@@ -24,5 +24,5 @@ Brain &Brain::operator=(Brain &brain)
 /* Destructor */
 Brain::~Brain(void)
 {
-	std::cout << "Brain destructed: " << std::endl;
+	std::cout << "Brain destructed" << std::endl;
 }

@@ -1,7 +1,7 @@
 NAME = animal
 SRCS = Animal.cpp Cat.cpp Dog.cpp main.cpp
 OBJS = $(SRCS:.cpp=.o)
-FLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
+FLAGS = -Wall -Wextra -std=c++98 -pedantic
 CC = c++
 INCLUDES = Animal.hpp Cat.hpp Dog.hpp
 

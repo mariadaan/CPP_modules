@@ -4,18 +4,19 @@
 
 int main(void)
 {
-	const Animal* meta = new Animal();
-	const Animal* myDog = new Dog();
-	// const Animal* myCat = new Cat();
-	std::cout << myDog->getType() << " " << std::endl;
-	// std::cout << myCat->getType() << " " << std::endl;
-	// myCat->makeSound(); //will output the cat sound!
+	const Animal *meta = new Animal();
+	const Animal *myDog = new Dog();
+	const Animal *myCat = new Cat();
+	std::cout << "Dog type:  " << myDog->getType() << " " << std::endl;
+	std::cout << "Cat type:  " << myCat->getType() << " " << std::endl;
+	std::cout << "Cat sound: ";
+	myCat->makeSound();
+	std::cout << "Dog sound: ";
 	myDog->makeSound();
+	std::cout << "Animal sound: ";
 	meta->makeSound();
 
 	delete meta;
 	delete myDog;
-	// hoe ook Dog van dog destructen?
-
 	return 0;
 }

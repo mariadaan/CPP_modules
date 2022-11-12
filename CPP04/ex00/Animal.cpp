@@ -4,7 +4,7 @@
 Animal::Animal(void)
 {
 	this->_type = "Animal base";
-	std::cout << "Animal default constructed" << std::endl;
+	std::cout << "Animal constructed" << std::endl;
 }
 
 /* Copy constructor */
@@ -15,7 +15,7 @@ Animal::Animal(Animal &animal)
 }
 
 /* Copy assignment constructor */
-Animal& Animal::operator=(Animal &animal)
+Animal &Animal::operator=(Animal &animal)
 {
 	std::cout << "Animal copy assignment operator copied " << animal.getType() << std::endl;
 	// copy all values
@@ -35,5 +35,5 @@ std::string Animal::getType(void) const
 
 void Animal::makeSound(void) const
 {
-	std::cout << "Animal sound" << std::endl;
+	std::cout << "....." << std::endl;
 }

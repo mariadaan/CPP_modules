@@ -11,7 +11,6 @@
 class Character : public ICharacter
 {
 public:
-	// canonical form
 	Character(void);
 	Character(std::string name);
 	Character(Character &other); // During copy, the Materias of a Character must be deleted before the new ones are added to their inventory. 
@@ -19,6 +18,7 @@ public:
 	virtual ~Character() {} // the Materias must be deleted when a Character is destroyed.
 
 	std::string const &getName() const;
+	AMateria *getInventory() const;
 	void equip(AMateria *m); // equip the Materias in the first empty slot they find.
 	void unequip(int idx); // NOT delete the materia, but remove from inventory
 	void use(int idx, ICharacter &target); // use the Materia at the slot[idx], and pass the target parameter to the AMateria::use function.

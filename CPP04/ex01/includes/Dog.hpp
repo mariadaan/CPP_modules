@@ -10,6 +10,7 @@ class Dog : public Animal
 public:
 	Dog(void);
 	Dog(Dog &animal);
+	Dog &operator=(const Dog &cat);
 	~Dog(void);
 
 	void makeSound(void) const;

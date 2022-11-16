@@ -78,6 +78,7 @@ int main(void)
 	cat2.getBrain()->_ideas[0] = "gadver ik lus geen melk";
 	std::cout << "cat3s idea: " << cat2.getBrain()->_ideas[0] << std::endl;
 	std::cout << "cat1s idea: " << cat1.getBrain()->_ideas[0] << std::endl;
+	std::cout << "----------------------------------------" << std::endl;
 
 	return 0;
 }

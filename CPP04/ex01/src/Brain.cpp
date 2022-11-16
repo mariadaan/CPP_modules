@@ -17,8 +17,12 @@ Brain::Brain(Brain &brain)
 Brain &Brain::operator=(Brain &brain)
 {
 	std::cout << "Brain copy assignment operator copied " << std::endl;
+	for (int i = 0; i < NUM_IDEAS; i++)
+	{
+		this->_ideas[i] = brain._ideas[i];
+	}
 	// copy all values
-	return brain;
+	return *this;
 }
 
 /* Destructor */

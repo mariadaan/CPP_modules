@@ -21,7 +21,6 @@ Brain &Brain::operator=(Brain &brain)
 	{
 		this->_ideas[i] = brain._ideas[i];
 	}
-	// copy all values
 	return *this;
 }
 

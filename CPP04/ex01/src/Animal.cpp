@@ -1,4 +1,5 @@
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 /* Default constructor */
 Animal::Animal(void) : _type("Animal base")
@@ -41,4 +42,9 @@ std::string Animal::getType(void) const
 void Animal::makeSound(void) const
 {
 	std::cout << "....." << std::endl;
+}
+
+Brain *Animal::getBrain(void) const
+{
+	return (NULL);
 }

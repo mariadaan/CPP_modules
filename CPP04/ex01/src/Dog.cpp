@@ -3,8 +3,8 @@
 /* Default constructor */
 Dog::Dog(void) : Animal("Dog")
 {
-	this->_brain = new Brain();
 	std::cout << "Dog constructed" << std::endl;
+	this->_brain = new Brain();
 }
 
 /* Copy constructor */
@@ -26,11 +26,16 @@ Dog &Dog::operator=( const Dog &dog )
 /* Destructor */
 Dog::~Dog(void)
 {
-	delete this->_brain;
 	std::cout << "Dog destructed: " << this->_type << std::endl;
+	delete this->_brain;
 }
 
 void Dog::makeSound(void) const
 {
 	std::cout << "WOEF WOEF" << std::endl;
+}
+
+Brain *Dog::getBrain(void) const
+{
+	return this->_brain;
 }

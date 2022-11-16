@@ -2,7 +2,6 @@
 #define BRAIN_HPP
 
 #include <iostream>
-#include "Animal.hpp"
 
 #define NUM_IDEAS 100
 
@@ -14,7 +13,6 @@ public:
 	Brain &operator=(Brain &brain);
 	virtual ~Brain(void);
 
-private:
 	std::string _ideas[NUM_IDEAS];
 };
 

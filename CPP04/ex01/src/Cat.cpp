@@ -3,8 +3,8 @@
 /* Default constructor */
 Cat::Cat(void) : Animal("Cat")
 {
-	this->_brain = new Brain();
 	std::cout << "Cat constructed" << std::endl;
+	this->_brain = new Brain();
 }
 
 /* Copy constructor */
@@ -33,4 +33,9 @@ Cat::~Cat(void)
 void Cat::makeSound(void) const
 {
 	std::cout << "MIAUW" << std::endl;
+}
+
+Brain *Cat::getBrain(void) const
+{
+	return this->_brain;
 }

@@ -1,4 +1,4 @@
-NAME		=	animal
+NAME		=	materia
 SRC_DIR		=	./src/
 OBJ_DIR		=	obj/
 
@@ -7,10 +7,7 @@ MAIN_INC	=	-I $(INCS_DIR)
 INCS		=	$(shell find $(INCS_DIR) -type f -name "*.hpp")
 
 SRC			=	main.cpp \
-				Animal.cpp \
-				Cat.cpp \
-				Dog.cpp \
-				Brain.cpp
+				AMateria.cpp
 				
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC:.cpp=.o))
 

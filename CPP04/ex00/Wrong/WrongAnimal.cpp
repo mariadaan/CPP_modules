@@ -18,8 +18,8 @@ WrongAnimal::WrongAnimal(WrongAnimal &animal)
 WrongAnimal &WrongAnimal::operator=(WrongAnimal &animal)
 {
 	std::cout << "WrongAnimal copy assignment operator copied " << animal.getType() << std::endl;
-	// copy all values
-	return animal;
+	this->_type = animal.getType();
+	return *this;
 }
 
 /* Destructor */

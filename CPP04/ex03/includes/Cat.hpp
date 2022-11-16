@@ -10,9 +10,11 @@ class Cat : public Animal
 public:
 	Cat(void);
 	Cat(Cat &animal);
+	Cat &operator=(const Cat &cat);
 	~Cat(void);
 
 	void makeSound(void) const;
+	Brain *getBrain(void) const;
 
 private:
 	Brain *_brain;

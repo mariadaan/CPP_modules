@@ -1,4 +1,4 @@
-NAME		=	materia
+NAME		=	animal
 SRC_DIR		=	./src/
 OBJ_DIR		=	obj/
 

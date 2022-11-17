@@ -18,7 +18,7 @@ int main(void)
 	}
 	catch (const std::exception &e)
 	{
-		std::cerr << "Exception thrown: " << e.what() << '\n';
+		std::cerr << "Exception thrown: " << e.what() << std::endl;
 	}
 	std::cout << hans;
 

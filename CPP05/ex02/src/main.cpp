@@ -3,6 +3,7 @@
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main(void)
 {
@@ -13,7 +14,7 @@ int main(void)
 		std::cout << "----------------------------------------" << std::endl;
 		Bureaucrat hans("Hans", 5);
 		std::cout << hans;
-		ShrubberyCreationForm shrubForm("kees");
+		ShrubberyCreationForm shrubForm("Kees");
 		shrubForm.beSigned(hans);
 
 		std::cout << "----------------------------------------" << std::endl;
@@ -42,7 +43,7 @@ int main(void)
 	try
 	{
 		Bureaucrat hans("Hans", 5);
-		ShrubberyCreationForm shrubForm("kees");
+		ShrubberyCreationForm shrubForm("Kees");
 		shrubForm.execute(hans);
 	}
 	catch(const std::exception& e)
@@ -56,13 +57,15 @@ int main(void)
 		std::cout << "       Testing successful execution      " << std::endl;
 		std::cout << "----------------------------------------" << std::endl;
 		Bureaucrat hans("Hans", 5);
-		ShrubberyCreationForm shrubForm("kees");
+		ShrubberyCreationForm shrubForm("Kees");
 		shrubForm.beSigned(hans);
 		shrubForm.execute(hans);
-		RobotomyRequestForm robotomyForm("roboto");
+		RobotomyRequestForm robotomyForm("Roboto");
 		robotomyForm.beSigned(hans);
 		robotomyForm.execute(hans);
-		
+		PresidentialPardonForm presidentialForm("President");
+		presidentialForm.beSigned(hans);
+		presidentialForm.execute(hans);
 	}
 	catch(const std::exception& e)
 	{

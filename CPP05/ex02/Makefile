@@ -9,7 +9,8 @@ INCS		=	$(shell find $(INCS_DIR) -type f -name "*.hpp")
 SRC			=	main.cpp \
 				Bureaucrat.cpp \
 				Form.cpp \
-				ShrubberyCreationForm.cpp
+				ShrubberyCreationForm.cpp \
+				RobotomyRequestForm.cpp
 				
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC:.cpp=.o))
 

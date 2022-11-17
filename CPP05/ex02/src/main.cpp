@@ -2,6 +2,7 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int main(void)
 {
@@ -58,6 +59,10 @@ int main(void)
 		ShrubberyCreationForm shrubForm("kees");
 		shrubForm.beSigned(hans);
 		shrubForm.execute(hans);
+		RobotomyRequestForm robotomyForm("roboto");
+		robotomyForm.beSigned(hans);
+		robotomyForm.execute(hans);
+		
 	}
 	catch(const std::exception& e)
 	{

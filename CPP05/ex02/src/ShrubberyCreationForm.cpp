@@ -1,8 +1,9 @@
+#include <fstream>
 #include "ShrubberyCreationForm.hpp"
 
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
-: Form::Form("ShrubberyCreationForm", 145, 137), _target(target + "_shrubbery"){}
+: Form::Form("ShrubberyCreationForm", 145, 137), _target(target){}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other) : Form(other)
 {
@@ -28,21 +29,9 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 		throw ShrubberyCreationForm::UnsignedFormException();
 	if (executor.getGrade() > this->getExecGrade())
 		throw Bureaucrat::GradeTooLowException();
-	std::cout << executor.getName() << " executed " << this->getName() << std::endl;
-
-}
-
-std::ostream &operator<<(std::ostream &os, const ShrubberyCreationForm &form)
-{
-	if (form.getIsSigned())
-		os << "Signed form ";
-	else
-		os << "Unsigned form ";
-	os << form.getName();
-	os << ", grade required to sign ";
-	os << form.getSignGrade();
-	os << ", grade required to execute ";
-	os << form.getExecGrade();
-	os << ".\n";
-	return os;
+	std::ofstream myTrees(this->_target + "_shrubbery");
+	myTrees << "               ,@@@@@@@,\n       ,,,.   ,@@@@@@/@@,  .oo8888o.\n    ,&\\%\\%&%&&%,@@@@@/@@@@@@,8888\\88/8o\n   ,%&\\\\\\%&&%&&%,@@@\\@@@/@@@88\\88888/88'\n   %&&%&%&/%&&%@@\\@@/ /@@@88888\\88888'\n   %&&%/ %&%%&&@@\\ V /@@' `88\\8 `/88'\n   `&%\\ ` /%&'    |.|        \\ '|8'\n       |o|        | |         | |\n       |.|        | |         | |\n       |.|        | |         | |\n       |.|        | |         | |\n";
+	myTrees.close();
+	std::cout << executor.getName() << " executed " << this->getName();
+	std::cout << ". Check " << (this->_target + "_shrubbery") << " file for the result!" << std::endl;
 }

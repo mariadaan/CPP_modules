@@ -26,6 +26,4 @@ private:
 	std::string _target;
 };
 
-std::ostream &operator<<(std::ostream &os, const ShrubberyCreationForm &form);
-
 #endif

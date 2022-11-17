@@ -63,9 +63,6 @@ int main(void)
 	{
 		std::cerr << "Exception thrown: " << e.what() << std::endl;
 	}
-	
-	
-
 
 }
 

@@ -1,7 +1,6 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 
-
 int main(void)
 {
 	// Hans
@@ -17,7 +16,7 @@ int main(void)
 			std::cout << hans;
 		}
 	}
-	catch(const std::exception& e)
+	catch (const std::exception &e)
 	{
 		std::cerr << "Exception thrown: " << e.what() << '\n';
 	}
@@ -30,7 +29,7 @@ int main(void)
 		std::cout << arnold;
 		arnold.decrementGrade();
 	}
-	catch(std::exception &e)
+	catch (std::exception &e)
 	{
 		std::cerr << "Exception thrown: " << e.what() << std::endl;
 	}
@@ -40,9 +39,8 @@ int main(void)
 	{
 		Bureaucrat bernard("Bernard", -8);
 	}
-	catch(const std::exception& e)
+	catch (const std::exception &e)
 	{
-		std::cerr << "Exception thrown: "<< e.what() << std::endl;
+		std::cerr << "Exception thrown: " << e.what() << std::endl;
 	}
-	
 }

@@ -15,11 +15,20 @@ public:
 	class GradeTooHighException
 	{
 	public:
-		const char *what() const throw() { return "Grade too low"; }
+		GradeTooHighException(const std::string &msg) : _msg(msg) {}
+		~GradeTooHighException() {}
+		std::string getHighMsg() const {return this->_msg}
+	private:
+		std::string _msg;
 	};
 
 	class GradeTooLowException
 	{
+		GradeTooLowException(const std::string &msg) : _msg(msg) {}
+		~GradeTooLowException() {}
+		std::string getLowMsg() const {return this->_msg}
+	private:
+		std::string _msg;
 	};
 
 private:

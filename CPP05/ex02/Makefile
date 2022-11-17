@@ -8,12 +8,13 @@ INCS		=	$(shell find $(INCS_DIR) -type f -name "*.hpp")
 
 SRC			=	main.cpp \
 				Bureaucrat.cpp \
-				Form.cpp
+				Form.cpp \
+				ShrubberyCreationForm.cpp
 				
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC:.cpp=.o))
 
 CC			=	c++
-CFLAGS		=	-Wall -Wextra -Werror -std=c++98 -pedantic
+CFLAGS		=	-Wall -Wextra -std=c++98 -pedantic
 
 $(OBJ_DIR)%.o:	$(SRC_DIR)%.cpp $(INCS)
 		@mkdir -p $(OBJ_DIR)

@@ -1,33 +1,72 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main(void)
 {
-	// Hans
 	try
 	{
+		std::cout << "----------------------------------------" << std::endl;
+		std::cout << "    Testing construction and signing    " << std::endl;
+		std::cout << "----------------------------------------" << std::endl;
 		Bureaucrat hans("Hans", 5);
-		Bureaucrat karel("Karel", 80);
 		std::cout << hans;
-		Form contract("contract", 10, 20);
-		std::cout << contract;
-		contract.beSigned(hans);
-		std::cout << contract;
-		contract.beSigned(karel);
+		ShrubberyCreationForm shrubForm("kees");
+		shrubForm.beSigned(hans);
+
+		std::cout << "----------------------------------------" << std::endl;
+		std::cout << "            Testing deep copy           " << std::endl;
+		std::cout << "----------------------------------------" << std::endl;
+		ShrubberyCreationForm kopieShrubform(shrubForm); // test copy constructor
+		ShrubberyCreationForm kopieShrubform2 = shrubForm; // test copy assignment constructor
+
+		std::cout << shrubForm;
+		std::cout << "shrubForm target: " << shrubForm.getTarget() << std::endl;
+		std::cout << kopieShrubform;
+		std::cout << "kopieShrubform target: " << kopieShrubform.getTarget() << std::endl;
+		std::cout << kopieShrubform2;
+		std::cout << "kopieShrubform2 target: " << kopieShrubform2.getTarget() << std::endl;
+		std::cout << "\n----------------------------------------" << std::endl;
+		std::cout << "       Testing failed execution      " << std::endl;
+		std::cout << "----------------------------------------" << std::endl;
+		Bureaucrat loser("Loser", 150);
+		shrubForm.execute(loser);
 	}
 	catch (const std::exception &e)
 	{
 		std::cerr << "Exception thrown: " << e.what() << std::endl;
 	}
 
-	// invalid form
 	try
 	{
-		Form invalid("invalid", 1, 300);
+		Bureaucrat hans("Hans", 5);
+		ShrubberyCreationForm shrubForm("kees");
+		shrubForm.execute(hans);
 	}
-	catch (const std::exception &e)
+	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << "Exception thrown: " << e.what() << std::endl;
 	}
+
+	try
+	{
+		std::cout << "\n----------------------------------------" << std::endl;
+		std::cout << "       Testing successful execution      " << std::endl;
+		std::cout << "----------------------------------------" << std::endl;
+		Bureaucrat hans("Hans", 5);
+		ShrubberyCreationForm shrubForm("kees");
+		shrubForm.beSigned(hans);
+		shrubForm.execute(hans);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Exception thrown: " << e.what() << std::endl;
+	}
+	
+	
+
+
 }
+
+

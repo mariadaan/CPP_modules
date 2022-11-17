@@ -66,12 +66,15 @@ int main(void)
 		PresidentialPardonForm presidentialForm("President");
 		presidentialForm.beSigned(hans);
 		presidentialForm.execute(hans);
+
+		hans.executeForm(robotomyForm);
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << "Exception thrown: " << e.what() << std::endl;
 	}
 
+	/* test failed execution through executeForm function */
 }
 
 

@@ -31,6 +31,4 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 	std::ofstream myTrees(this->_target + "_shrubbery");
 	myTrees << "               ,@@@@@@@,\n       ,,,.   ,@@@@@@/@@,  .oo8888o.\n    ,&\\%\\%&%&&%,@@@@@/@@@@@@,8888\\88/8o\n   ,%&\\\\\\%&&%&&%,@@@\\@@@/@@@88\\88888/88'\n   %&&%&%&/%&&%@@\\@@/ /@@@88888\\88888'\n   %&&%/ %&%%&&@@\\ V /@@' `88\\8 `/88'\n   `&%\\ ` /%&'    |.|        \\ '|8'\n       |o|        | |         | |\n       |.|        | |         | |\n       |.|        | |         | |\n       |.|        | |         | |\n";
 	myTrees.close();
-	// std::cout << executor.getName() << " executed " << this->getName();
-	// std::cout << ". Check " << (this->_target + "_shrubbery") << " file for the result!" << std::endl;
 }

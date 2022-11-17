@@ -3,6 +3,9 @@
 
 #include <iostream>
 #include <stdexcept>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -18,6 +21,8 @@ public:
 
 	void incrementGrade(void);
 	void decrementGrade(void);
+
+	void executeForm(Form const &form);
 
 	class GradeTooHighException : public std::exception
 	{

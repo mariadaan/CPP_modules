@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat(void) {}
 
@@ -49,6 +50,19 @@ void Bureaucrat::decrementGrade(void)
 		throw Bureaucrat::GradeTooLowException();
 	else
 		this->_grade += 1;
+}
+
+void Bureaucrat::executeForm(Form const &form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << this->getName() << " executed " << form.getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Execution failed." << std::endl;
+	}
 }
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat)

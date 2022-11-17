@@ -11,7 +11,7 @@ public:
 	Cat(void);
 	Cat(Cat &cat);
 	Cat &operator=(const Cat &cat);
-	~Cat(void);
+	virtual ~Cat(void);
 
 	void makeSound(void) const;
 	Brain *getBrain(void) const;

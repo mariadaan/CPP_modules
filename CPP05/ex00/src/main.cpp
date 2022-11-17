@@ -1,35 +1,48 @@
 #include <iostream>
-#include <string>
+#include "Bureaucrat.hpp"
 
-using namespace std;
 
-class Exception
+int main(void)
 {
-
-public:
-	Exception(const string &msg) : msg_(msg) {}
-	~Exception() {}
-
-	string getMessage() const { return (msg_); }
-
-private:
-	string msg_;
-};
-
-void f()
-{
-	throw(Exception("Mr. Sulu"));
-}
-
-int main()
-{
-
+	// Hans
+	Bureaucrat hans("Hans", 5);
 	try
 	{
-		f();
+		std::cout << hans;
+		hans.incrementGrade();
+		std::cout << hans;
+		for (int i = 0; i < 30; i++)
+		{
+			hans.incrementGrade();
+			std::cout << hans;
+		}
 	}
-	catch (Exception &e)
+	catch(const std::exception& e)
 	{
-		cout << "You threw an exception: " << e.getMessage() << endl;
+		std::cerr << "Exception thrown: " << e.what() << '\n';
 	}
+	std::cout << hans;
+
+	// Arnold
+	try
+	{
+		Bureaucrat arnold("Arnold", 150);
+		std::cout << arnold;
+		arnold.decrementGrade();
+	}
+	catch(std::exception &e)
+	{
+		std::cerr << "Exception thrown: " << e.what() << std::endl;
+	}
+
+	// Bernard
+	try
+	{
+		Bureaucrat bernard("Bernard", -8);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Exception thrown: "<< e.what() << std::endl;
+	}
+	
 }

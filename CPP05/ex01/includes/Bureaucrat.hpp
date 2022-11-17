@@ -22,13 +22,13 @@ public:
 	class GradeTooHighException : public std::exception
 	{
 	public:
-		virtual const char *what() const throw() { return "Grade too high"; }
+		const char *what() const throw() { return "Bureaucrat grade too high"; }
 	};
 
 	class GradeTooLowException : public std::exception
 	{
 	public:
-		virtual const char *what() const throw() { return "Grade too low"; }
+		const char *what() const throw() { return "Bureaucrat grade too low"; }
 	};
 
 private:

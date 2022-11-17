@@ -54,8 +54,8 @@ void Form::beSigned(const Bureaucrat &bureaucrat)
 	else
 	{
 		std::cout << bureaucrat.getName() << " couldn't sign " << this->_name;
-		std::cout << "because " << bureaucrat.getName() << "grade is too low";
-		throw Form::GradeTooLowException();
+		std::cout << " because " << bureaucrat.getName() << "'s grade is too low" << std::endl;
+		throw Bureaucrat::GradeTooLowException();
 	}
 }
 

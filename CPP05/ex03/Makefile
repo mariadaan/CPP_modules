@@ -11,12 +11,13 @@ SRC			=	main.cpp \
 				Form.cpp \
 				ShrubberyCreationForm.cpp \
 				RobotomyRequestForm.cpp \
-				PresidentialPardonForm.cpp
+				PresidentialPardonForm.cpp \
+				Intern.cpp
 				
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC:.cpp=.o))
 
 CC			=	c++
-CFLAGS		=	-Wall -Wextra -std=c++98 -pedantic
+CFLAGS		=	-Wall -Wextra -Werror -std=c++98 -pedantic
 
 $(OBJ_DIR)%.o:	$(SRC_DIR)%.cpp $(INCS)
 		@mkdir -p $(OBJ_DIR)

@@ -1,7 +1,6 @@
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
-// check requirements here?
 Form::Form(void) : _name(""), _isSigned(false), _signGrade(150), _execGrade(150){}
 
 Form::Form(std::string name, int signGrade, int execGrade) : _name(name), _isSigned(false), _signGrade(signGrade), _execGrade(execGrade)

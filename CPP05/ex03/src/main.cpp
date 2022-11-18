@@ -23,6 +23,14 @@ int main(void)
 	std::cout << "Test if forms can still be signed and executed:" << std::endl;
 	std::cout << "-------------------------------------------------" << std::endl;
 	Bureaucrat hans("Hans", 5);
+	rrf->beSigned(hans);
+	scf->beSigned(hans);
 	ppf->beSigned(hans);
+	hans.executeForm(*rrf);
+	hans.executeForm(*scf);
 	hans.executeForm(*ppf);
+	delete rrf;
+	delete scf;
+	delete ppf;
+	delete nef;
 }

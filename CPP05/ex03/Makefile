@@ -33,10 +33,11 @@ clean		:
 fclean		:	clean
 		@rm -rf $(NAME)
 		@rm -rf *.dSYM
+		@rm -rf *_shrubbery
 
 re			:	fclean	all
 
 exe			:	all
 	./$(NAME)
 
-.PHONY		:	all clean fclean re
+.PHONY		:	all clean fclean re exe

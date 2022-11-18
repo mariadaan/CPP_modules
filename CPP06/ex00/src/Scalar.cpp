@@ -49,13 +49,38 @@ std::ostream &operator<<(std::ostream &os, const Scalar &scalar)
 	return os;
 }
 
-
-/* use switch statement to convert to the other types */
+/* check special values and whether i should have actual types in 
+attributes or keep it all strings */
 void convertLiteral(void)
 {
-	if (this->isIntLiteral(this->_literal))
+	switch (detectType(this->_literal))
+	{
+	case INT:
 	{
 		this->_intValue = this->_literal;
+		int value = std::atoi(this->_literal.c_str());
+		float asFloat = static_cast<float>(value);
+		double asDouble = static_cast<double>(value);
+		if (isprint(value))
+			char asChar = static_cast<char>(value);
+		else
+			this->_charValue = "Non displayable";
+		break;
 	}
-
+	case FLOAT:
+	{
+		break;
+	}
+	case DOUBLE:
+	{
+		break;
+	}
+	case CHAR:
+	{
+		break;
+	}
+	default:
+		break;
+	}
+	
 }

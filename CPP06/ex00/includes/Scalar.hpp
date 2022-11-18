@@ -20,10 +20,10 @@ public:
 	std::string getDoubleValue(void) const;
 	std::string getCharValue(void) const;
 
-	bool isIntLiteral(const std::string literal);
-	bool isFloatLiteral(const std::string literal);
-	bool isDoubleLiteral(const std::string literal);
-	bool isCharLiteral(const std::string literal);
+	// bool isIntLiteral(const std::string literal);
+	// bool isFloatLiteral(const std::string literal);
+	// bool isDoubleLiteral(const std::string literal);
+	// bool isCharLiteral(const std::string literal);
 
 	void convertLiteral(void);
 private:

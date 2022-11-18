@@ -54,15 +54,8 @@ void Bureaucrat::decrementGrade(void)
 
 void Bureaucrat::executeForm(Form const &form)
 {
-	try
-	{
-		form.execute(*this);
-		std::cout << this->getName() << " executed " << form.getName() << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << "Execution failed." << std::endl;
-	}
+	form.execute(*this);
+	std::cout << this->getName() << " executed " << form.getName() << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat)

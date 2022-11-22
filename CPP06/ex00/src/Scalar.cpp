@@ -4,7 +4,6 @@ Scalar::Scalar() : _literal(""), _scalarType(-1) {}
 
 Scalar::Scalar(std::string literal) : _literal(literal), _scalarType(detectType(literal))
 {
-	// this->_scalarType = detectType(this->_literal)
 	this->convertLiteral();
 }
 
@@ -67,14 +66,7 @@ void Scalar::convertLiteral(void)
 	}
 	case FLOAT:
 	{
-		if (this->_literal == "inff")
-			this->_floatValue = std::numeric_limits<float>::infinity();
-		// else if (this->_literal == "-inff")
-
-		// else if (this->_literal == "nanf")
-		else
-			this->_floatValue = atof(this->_literal);
-		
+		this->_floatValue = atof(this->_literal);
 		this->_intValue = static_cast<int>(this->_floatValue);
 		this->_doubleValue = static_cast<double>(this->_floatValue);
 		this->_charValue = static_cast<char>(this->_intValue);
@@ -83,7 +75,6 @@ void Scalar::convertLiteral(void)
 	case DOUBLE:
 	{
 		this->_doubleValue = atod(this->_literal);
-		// if nan
 		this->_intValue = static_cast<int>(this->_doubleValue);
 		this->_floatValue = static_cast<float>(this->_doubleValue);
 		this->_charValue = static_cast<char>(this->_intValue);
@@ -110,7 +101,9 @@ std::ostream &operator<<(std::ostream &os, const Scalar &scalar)
 
 	// print char
 	os << "\nchar: ";
-	if (scalar.getCharValue() == -1)
+	if (scalar.getLiteral() == "-inf" || scalar.getLiteral() == "+inf" || scalar.getLiteral() == "nan"
+		|| scalar.getLiteral() == "-inff" || scalar.getLiteral() == "+inff" || scalar.getLiteral() == "nanf"
+		|| scalar.getScalarType() == -1)
 		os << "impossible";
 	else if (!isprint(scalar.getCharValue()))
 		os << "Non displayable";
@@ -118,16 +111,21 @@ std::ostream &operator<<(std::ostream &os, const Scalar &scalar)
 		os << "\'" << scalar.getCharValue() << "\'";
 
 	// print int
-	os << "\nint: " << scalar.getIntValue();
+	os << "\nint: ";
+	if (scalar.getLiteral() == "-inf" || scalar.getLiteral() == "+inf" || scalar.getLiteral() == "nan"
+		|| scalar.getLiteral() == "-inff" || scalar.getLiteral() == "+inff" || scalar.getLiteral() == "nanf"
+		|| scalar.getDoubleValue() > INT_MAX || scalar.getDoubleValue() < INT_MIN || scalar.getScalarType() == -1)
+		os << "impossible";
+	else
+		os << scalar.getIntValue();
 
 	// print float
 	os << "\nfloat: " ;
-	if (scalar.getScalarType() == FLOAT)
-		os << scalar.getLiteral();
-	else if (scalar.getScalarType() == DOUBLE)
-		os << (scalar.getLiteral()) << "f";
+	if (scalar.getScalarType() == -1)
+		os << "impossible";
 	else
 	{
+		// os << std::fixed << std::setprecision(1) 
 		os << scalar.getFloatValue();
 		if (scalar.getScalarType() == INT || scalar.getScalarType() == CHAR)
 			os << ".0";
@@ -136,18 +134,14 @@ std::ostream &operator<<(std::ostream &os, const Scalar &scalar)
 
 	// print double
 	os << "\ndouble: ";
-	if (scalar.getScalarType() == DOUBLE)
-		os << scalar.getLiteral();
-	else if (scalar.getScalarType() == FLOAT)
-	{
-		std::string to_print = scalar.getLiteral();
-		to_print.pop_back();
-		os << to_print;
-	}
+	if (scalar.getScalarType() == -1)
+		os << "impossible";
 	else
+	{
 		os << scalar.getDoubleValue();
-	if (scalar.getScalarType() == INT || scalar.getScalarType() == CHAR)
-		os << ".0";
+		if (scalar.getScalarType() == INT || scalar.getScalarType() == CHAR)
+			os << ".0";
+	}
 	os << "\n\n";
 	return os;
 }
@@ -221,7 +215,6 @@ bool isIntLiteral(const std::string literal)
 
 bool isFloatLiteral(const std::string literal)
 {
-	// (-inff or +inff or nanf)
 	if (literal == "-inff"
 		|| literal == "+inff"
 		|| literal == "nanf")
@@ -235,7 +228,6 @@ bool isFloatLiteral(const std::string literal)
 
 bool isDoubleLiteral(const std::string literal)
 {
-	// (-inf or +inf or nan)
 	if (literal == "-inf"
 		|| literal == "+inf"
 		|| literal == "nan")

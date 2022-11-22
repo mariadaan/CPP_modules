@@ -37,4 +37,26 @@ int main(void)
 
 	Scalar test12("42.0");
 	std::cout << test12;
+	
+	Scalar test13("239044345672389.0");
+	std::cout << test13;
+
+	Scalar test14("239044345672389.02489744894");
+	std::cout << test14;
+
+	Scalar test15("23904434567238902489");
+	std::cout << test15;
+
+	Scalar test16("87658844636342356457457567563839443456723.0344");
+	std::cout << test16;
+
+	Scalar test17("42.0f");
+	std::cout << test17;
+
+	Scalar test18("42.0457f");
+	std::cout << test18;
+
+	Scalar test19("7460457");
+	std::cout << test19;
+
 }

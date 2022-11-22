@@ -35,4 +35,7 @@ re			:	fclean	all
 exe			:	all
 	./$(NAME)
 
-.PHONY		:	all clean fclean re
+test		:	all
+	./$(NAME) all_tests
+
+.PHONY		:	all clean fclean re exe test

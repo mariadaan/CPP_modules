@@ -96,16 +96,16 @@ void Scalar::convertLiteral(void)
 
 std::ostream &operator<<(std::ostream &os, const Scalar &scalar)
 {
-	os << "literal: " << scalar.getLiteral();
-	os << "\nscalartype: " << scalar.getScalarType();
+	// os << "literal: " << scalar.getLiteral();
+	// os << "scalartype: " << scalar.getScalarType() << "\n";
 
 	// print char
-	os << "\nchar: ";
+	os << "char: ";
 	if (scalar.getLiteral() == "-inf" || scalar.getLiteral() == "+inf" || scalar.getLiteral() == "nan"
 		|| scalar.getLiteral() == "-inff" || scalar.getLiteral() == "+inff" || scalar.getLiteral() == "nanf"
 		|| scalar.getScalarType() == -1)
 		os << "impossible";
-	else if (!isprint(scalar.getCharValue()))
+	else if (!isprint(scalar.getIntValue()))
 		os << "Non displayable";
 	else
 		os << "\'" << scalar.getCharValue() << "\'";

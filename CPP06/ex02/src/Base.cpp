@@ -8,24 +8,13 @@ Base *generate(void)
 	switch (rand() % 3)
 	{
 	case 0:
-	{	A *baseA = new A();
-		return baseA;
-		break;
-	}
+		return new A();
 	case 1:
-	{	B *baseB = new B();
-		return baseB;
-		break;
-	}
+		return new B();
 	case 2:
-	{	C *baseC = new C();
-		return baseC;
-		break;
-	}
+		return new C();
 	default:
-	{	return NULL;
-		break;
-	}
+		return NULL;
 	}
 }
 

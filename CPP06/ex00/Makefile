@@ -7,7 +7,7 @@ MAIN_INC	=	-I $(INCS_DIR)
 INCS		=	$(shell find $(INCS_DIR) -type f -name "*.hpp")
 
 SRC			=	main.cpp \
-				convert.cpp
+				Scalar.cpp
 				
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC:.cpp=.o))
 
@@ -33,6 +33,6 @@ fclean		:	clean
 re			:	fclean	all
 
 exe			:	all
-	./$(NAME) 500
+	./$(NAME)
 
 .PHONY		:	all clean fclean re

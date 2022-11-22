@@ -1,3 +1,6 @@
+#include <iostream>
+#include <sstream>
+
 enum scalartypes 
 {
 	INT,
@@ -15,23 +18,34 @@ public:
 	Scalar &operator=(const Scalar &other);
 	~Scalar(void);
 
-	std::string getIntValue(void) const;
-	std::string getFloatValue(void) const;
-	std::string getDoubleValue(void) const;
-	std::string getCharValue(void) const;
+	std::string getLiteral(void) const;
+	int getScalarType(void) const;
+	int		getIntValue(void) const;
+	float	getFloatValue(void) const;
+	double	getDoubleValue(void) const;
+	char	getCharValue(void) const;
 
-	// bool isIntLiteral(const std::string literal);
-	// bool isFloatLiteral(const std::string literal);
-	// bool isDoubleLiteral(const std::string literal);
-	// bool isCharLiteral(const std::string literal);
-
-	void convertLiteral(void);
+	void	convertLiteral(void);
 private:
 	const std::string _literal;
-	std::string _intValue;
-	std::string _floatValue;
-	std::string _doubleValue;
-	std::string _charValue;
-}
+	const int	_scalarType;
+	int			_intValue;
+	float		_floatValue;
+	double		_doubleValue;
+	char		_charValue;
+};
 
 std::ostream &operator<<(std::ostream &os, const Scalar &scalar);
+
+int detectType(const std::string literal);
+bool isIntLiteral(const std::string literal);
+bool isFloatLiteral(const std::string literal);
+bool isDoubleLiteral(const std::string literal);
+bool isCharLiteral(const std::string literal);
+
+
+/* utils */
+const std::string itoa(int num);
+float atof(std::string str);
+double atod(std::string str);
+char atoc(std::string str);

@@ -1,3 +1,6 @@
+#ifndef SCALAR_HPP
+# define SCALAR_HPP
+
 #include <iostream>
 #include <sstream>
 #include <iomanip>
@@ -50,3 +53,5 @@ const	std::string itoa(int num);
 float	atof(std::string str);
 double	atod(std::string str);
 char	atoc(std::string str);
+
+#endif

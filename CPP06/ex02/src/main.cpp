@@ -6,4 +6,5 @@ int main(void)
 	basePtr = generate();
 	identify(basePtr);
 	identify(*basePtr);
+	delete basePtr;
 }

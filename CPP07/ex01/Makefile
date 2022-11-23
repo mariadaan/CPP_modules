@@ -1,4 +1,4 @@
-NAME		=	functions
+NAME		=	iter
 SRC_DIR		=	./src/
 OBJ_DIR		=	obj/
 
@@ -6,7 +6,8 @@ INCS_DIR	=	./includes
 MAIN_INC	=	-I $(INCS_DIR)
 INCS		=	$(shell find $(INCS_DIR) -type f -name "*.hpp")
 
-SRC			=	main.cpp
+SRC			=	main.cpp \
+				iter.cpp
 
 OBJ			=	$(addprefix $(OBJ_DIR), $(SRC:.cpp=.o))
 

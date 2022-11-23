@@ -1,3 +1,6 @@
+#ifndef FUNCTIONS_HPP
+ #define FUNCTIONS_HPP
+
 #include <iostream>
 
 template <typename T>
@@ -21,3 +24,5 @@ T max(T const &a, T const &b)
 {
 	return (a > b ? a : b);
 }
+
+#endif

@@ -125,10 +125,10 @@ std::ostream &operator<<(std::ostream &os, const Scalar &scalar)
 		os << "impossible";
 	else
 	{
-		// os << std::fixed << std::setprecision(1) 
+		os << std::fixed << std::setprecision(1);
 		os << scalar.getFloatValue();
-		if (scalar.getScalarType() == INT || scalar.getScalarType() == CHAR)
-			os << ".0";
+		// if (scalar.getScalarType() == INT || scalar.getScalarType() == CHAR)
+		// 	os << ".0";
 		os << "f";
 	}
 
@@ -139,8 +139,8 @@ std::ostream &operator<<(std::ostream &os, const Scalar &scalar)
 	else
 	{
 		os << scalar.getDoubleValue();
-		if (scalar.getScalarType() == INT || scalar.getScalarType() == CHAR)
-			os << ".0";
+		// if (scalar.getScalarType() == INT || scalar.getScalarType() == CHAR)
+		// 	os << ".0";
 	}
 	os << "\n\n";
 	return os;

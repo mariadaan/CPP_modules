@@ -26,17 +26,9 @@ public:
 
 private:
 	T	*_array;
-	const int	_size;
+	int	_size;
 };
 
 #include "Array.tpp"
-
-// template <typename T>
-// int arrayLen(T *array)
-// {
-// 	if (!array)
-// 		return 0;
-// 	return sizeof(array)/sizeof(array[0]);
-// }
 
 #endif

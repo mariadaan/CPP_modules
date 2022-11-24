@@ -2,38 +2,105 @@
 
 int main(void)
 {
-	Array<int> myArray(8);
-	Array<int> myEmptyArray;
-	std::cout << "size: " << myArray.size() << std::endl;
-	std::cout << "array[3]: " << myArray[9] << std::endl;
+	std::cout << "\n-------------------------------------------------" << std::endl;
+	std::cout << "            Testing with empty array            " << std::endl;
+	std::cout << "-------------------------------------------------" << std::endl;
+
+	Array<int> myEmptyIntArray;
 	try
 	{
-		myArray[9];
-		// std::cout << "array[3]: " << myArray[9] << std::endl;
+		myEmptyIntArray[1];
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << "Exception thrown: " << e.what() << '\n';
 	}
-	
+	Array<char> myEmptyCharArray;
+	try
+	{
+		myEmptyCharArray[3];
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Exception thrown: " << e.what() << '\n';
+	}
 
-	// /* test with int array */
-	// int int_array [] = { 16, 2, 77, 40, 12071 };
-	// iter(int_array, 5, &increase);
-	// iter(int_array, 5, &printElemSep);
-	// std::cout << std::endl;
+	std::cout << "\n-------------------------------------------------" << std::endl;
+	std::cout << "             Testing with int array             " << std::endl;
+	std::cout << "-------------------------------------------------" << std::endl;
 
-	// /* test with char array */
-	// char char_array [] = "EJU!JT!FFO!HFIFJNF!CPPETDIBQ\"";
-	// iter(char_array, 29, &decrease);
-	// iter(char_array, 29, &printElem);
-	// std::cout << std::endl;
+	Array<int> myIntArray(8);
+	myIntArray[3] = 180;
+	std::cout << "size: " << myIntArray.size() << std::endl;
+	std::cout << "array[3]: " << myIntArray[3] << std::endl;
+	try
+	{
+		myIntArray[9];
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Exception thrown: " << e.what() << '\n';
+	}
 
-	// /* test with float array */
-	// float float_array [] = { 16.8f, 2.203f, 77.0002, 40.12f, 1.2071f };
-	// iter(float_array, 5, &increase);
-	// iter(float_array, 5, &printElemSep);
-	// std::cout << std::endl;
+	std::cout << "\n-------------------------------------------------" << std::endl;
+	std::cout << "            Testing with char array            " << std::endl;
+	std::cout << "-------------------------------------------------" << std::endl;
+
+	Array<char> myCharArray(300);
+	try
+	{
+		myCharArray[-1];
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Exception thrown: " << e.what() << '\n';
+	}
+	try
+	{
+		myCharArray[250] = 'w';
+		std::cout << "size: " << myCharArray.size() << std::endl;
+		std::cout << "array[250]: " << myCharArray[250] << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Exception thrown: " << e.what() << '\n';
+	}
+
+	std::cout << "\n-------------------------------------------------" << std::endl;
+	std::cout << "            Testing with char* array            " << std::endl;
+	std::cout << "-------------------------------------------------" << std::endl;
+
+	Array<const char *> myStringArray(20);
+	try
+	{
+		std::string myString = "Nou dat was hem weer!";
+		myStringArray[10] = myString.c_str();
+		std::cout << "size: " << myStringArray.size() << std::endl;
+		std::cout << "array[10]: " << myStringArray[10] << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Exception thrown: " << e.what() << '\n';
+	}
+
+	std::cout << "\n-------------------------------------------------" << std::endl;
+	std::cout << "                Testing deep copy                " << std::endl;
+	std::cout << "-------------------------------------------------" << std::endl;
+
+	Array<int> myIntArrayCopy(myIntArray);
+	Array<int> myIntArrayCopy2 = myIntArray;
+	try
+	{
+		myIntArrayCopy[3] = 5000;
+		std::cout << "size: " << myIntArrayCopy.size() << std::endl;
+		std::cout << "  copied array[3]: " << myIntArrayCopy[3] << std::endl;
+		std::cout << "  copied array[3]: " << myIntArrayCopy2[3] << std::endl;
+		std::cout << "original array[3]: " << myIntArray[3] << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Exception thrown: " << e.what() << '\n';
+	}
 
 	return 0;
 }

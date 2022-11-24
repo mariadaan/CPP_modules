@@ -6,10 +6,7 @@ template <typename T>
 Array<T>::Array(void) : _array(new T[0]), _size(0) {}
 
 template <typename T>
-Array<T>::Array(unsigned int n) : _array(new T[n]), _size(n)
-{
-	this->_array[3] = 24;
-}
+Array<T>::Array(unsigned int n) : _array(new T[n]), _size(n) {}
 
 template <typename T>
 Array<T>::Array(const Array<T> &other)
@@ -20,15 +17,20 @@ Array<T>::Array(const Array<T> &other)
 template <typename T>
 Array<T>	&Array<T>::operator=(const Array<T> &other)
 {
-	int n = other.size();
-	this->_array = new T[n];
-	for (int i = 0; i < n; i++)
+	this->_size = other.size();
+	if (this->_array)
+		delete[] this->_array;
+	this->_array = new T[this->_size];
+	for (int i = 0; i < this->_size; i++)
 		this->_array[i] = other.getArray()[i];
 	return (*this);
 }
 
 template <typename T>
-Array<T>::~Array() {}
+Array<T>::~Array()
+{
+	delete[] this->_array;
+}
 
 template <typename T>
 T * Array<T>::getArray(void) const
@@ -45,7 +47,7 @@ int Array<T>::size(void) const
 template <typename T>
 T	&Array<T>::operator[](int index)
 {
-	if (index < 0 || index > this->_size)
+	if (index < 0 || index >= this->_size)
 		throw OutOfBounds();
 	return this->_array[index];
 }

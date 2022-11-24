@@ -10,7 +10,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) -o $@ $^ $(FLAGS)
 
-%.o: %.cpp
+%.o: %.cpp %.tpp $(INCLUDES)
 	$(CC) -o $@ -c $^ $(FLAGS)
 
 clean:

@@ -18,12 +18,6 @@ public:
 	T *getArray(void) const;
 	int size(void) const;
 
-	class OutOfBounds : public std::exception
-	{
-	public:
-		const char *what() const throw() { return "index out of bounds"; }
-	};
-
 private:
 	T	*_array;
 	int	_size;

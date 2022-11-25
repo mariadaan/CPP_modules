@@ -11,6 +11,7 @@ Array<T>::Array(unsigned int n) : _array(new T[n]), _size(n) {}
 template <typename T>
 Array<T>::Array(const Array<T> &other)
 {
+	this->_array = NULL;
 	*this = other;
 }
 

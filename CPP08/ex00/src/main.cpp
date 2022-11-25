@@ -10,9 +10,9 @@ void printContainer(T container)
 	it != container.end(); it++)
 	{
 		std::cout << *it;
-		std::cout << ", ";
+		std::cout << " ";
 	}
-	std::cout << " }" << std::endl;
+	std::cout << "}" << std::endl;
 }
 
 

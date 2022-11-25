@@ -2,9 +2,6 @@
 #define SPAN_TPP
 #include "Span.hpp"
 
-template <typename T>
-void printContainer(T container);
-
 Span::Span(void) : _maxSize(0) {}
 
 Span::Span(unsigned int N) : _maxSize(N) {}

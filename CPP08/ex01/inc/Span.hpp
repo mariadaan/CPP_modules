@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <stdexcept>
+#include <algorithm>
 #include <vector>
 
 class Span
@@ -18,7 +19,7 @@ public:
 	std::vector<int> getValues(void) const;
 
 	void addNumber(int toAdd);
-	// int shortestSpan(void);
+	int shortestSpan(void);
 	int longestSpan(void);
 	
 private:

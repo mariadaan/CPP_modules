@@ -2,14 +2,13 @@
 #define SPAN_TPP
 #include "Span.hpp"
 
+template <typename T>
+void printContainer(T container);
+
+
 Span::Span(void) : _maxSize(0) {}
 
-Span::Span(unsigned int N) : _maxSize(N)
-{
-	// T<int,N> containerType;
-	// this->_containerType = &containerType;
-
-}
+Span::Span(unsigned int N) : _maxSize(N) {}
 
 Span::Span(const Span &other) : _maxSize(other.getMaxSize())
 {
@@ -18,7 +17,7 @@ Span::Span(const Span &other) : _maxSize(other.getMaxSize())
 
 Span	&Span::operator=(const Span &other)
 {
-	// this->_values = other.getValues(); // dits niet goed
+	this->_values = other.getValues();
 	return (*this);
 }
 
@@ -41,24 +40,31 @@ void Span::addNumber(int toAdd)
 	this->_values.push_back(toAdd);
 }
 
-// unsigned int Span::shortestSpan(void)
-// {
-// 	unsigned int span;
-// 	if (this->_maxSize <= 1 || this->_values.size() <= 1)
-// 		throw std::out_of_range("no span can be found");
-// 	span = 3;
+int Span::shortestSpan(void)
+{
+	int span = INT_MAX;
+	if (this->_maxSize <= 1 || this->_values.size() <= 1)
+		throw std::out_of_range("no span can be found");
 
-// 	// shortest span = 
-	
-// 	return span;
-// }
+	std::vector<int> sorted = this->_values;
+	std::sort(sorted.begin(), sorted.end());
+	for (std::vector<int>::const_iterator it = ++sorted.cbegin();
+	it != sorted.cend(); it++)
+	{
+		std::vector<int>::const_iterator next = std::next(it, 1);
+		if (next == sorted.cend())
+			break;
+		span = (*next - *it) < span ? (*next - *it) : span;
+	}
+	return span;
+}
+
 int Span::longestSpan(void)
 {
 	if (this->_maxSize <= 1 || this->_values.size() <= 1)
 		throw std::out_of_range("no span can be found");
-	int max = *max_element(this->_values.begin(), this->_values.end());;
-	int min = *min_element(this->_values.begin(), this->_values.end());;
-
+	int max = *max_element(this->_values.begin(), this->_values.end());
+	int min = *min_element(this->_values.begin(), this->_values.end());
 	return max - min;
 }
 

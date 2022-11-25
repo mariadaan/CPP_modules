@@ -42,7 +42,27 @@ int main()
 	sp.addNumber(9);
 	sp.addNumber(11);
 	printContainer(sp.getValues());
-	// std::cout << sp.shortestSpan() << std::endl;
+	std::cout << sp.shortestSpan() << std::endl;
 	std::cout << sp.longestSpan() << std::endl;
+
+	try
+	{
+		sp.addNumber(666);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Exception thrown: " << e.what() << '\n';
+	}
+
+	try
+	{
+		Span emptySpan;
+		emptySpan.shortestSpan();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Exception thrown: " << e.what() << '\n';
+	}
+
 	return 0;
 }

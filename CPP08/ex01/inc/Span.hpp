@@ -5,6 +5,7 @@
 #include <stdexcept>
 #include <algorithm>
 #include <vector>
+#include <ctime>
 
 class Span
 {
@@ -21,11 +22,13 @@ public:
 	void addNumber(int toAdd);
 	int shortestSpan(void);
 	int longestSpan(void);
+	void addMany(int N);
 	
 private:
 	const unsigned int _maxSize;
 	std::vector<int> _values;
 };
 
+std::vector<int> getRandomVector(int N);
 
 #endif

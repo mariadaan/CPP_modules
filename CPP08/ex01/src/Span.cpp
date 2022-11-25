@@ -5,7 +5,6 @@
 template <typename T>
 void printContainer(T container);
 
-
 Span::Span(void) : _maxSize(0) {}
 
 Span::Span(unsigned int N) : _maxSize(N) {}
@@ -63,10 +62,30 @@ int Span::longestSpan(void)
 {
 	if (this->_maxSize <= 1 || this->_values.size() <= 1)
 		throw std::out_of_range("no span can be found");
-	int max = *max_element(this->_values.begin(), this->_values.end());
-	int min = *min_element(this->_values.begin(), this->_values.end());
+	int max = *std::max_element(this->_values.begin(), this->_values.end());
+	int min = *std::min_element(this->_values.begin(), this->_values.end());
 	return max - min;
 }
 
+void Span::addMany(int N)
+{
+	if (this->_values.size() + N > this->_maxSize)
+		throw std::out_of_range("can not add that many values, max size will be overflown");
+	std::vector<int> toAppend = getRandomVector(N);
+	this->_values.insert(this->_values.end(), toAppend.begin(), toAppend.end());
+}
+
+static int randomNum(void) {
+	return rand() % 1000;
+}
+
+/* Generates a vector of length N, filled with random values */
+std::vector<int> getRandomVector(int N)
+{
+	std::srand(unsigned(std::time(nullptr)));
+	std::vector<int> v(N);
+	std::generate_n(v.begin(), N, randomNum);
+	return v;
+}
 
 #endif

@@ -1,5 +1,5 @@
-#ifndef SPAN_TPP
-#define SPAN_TPP
+#ifndef SPAN_CPP
+#define SPAN_CPP
 #include "Span.hpp"
 
 Span::Span(void) : _maxSize(0) {}

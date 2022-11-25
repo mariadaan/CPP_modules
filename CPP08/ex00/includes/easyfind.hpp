@@ -5,15 +5,17 @@
 
 /*
 Assuming T is a container of integers, this function has to find the first occurrence
-of the second parameter in the first parameter. 
+of toFind in container. 
 
-If no occurrence is found, you can either throw an exception or return an error value
-of your choice. If you need some inspiration, analyze how standard containers behave
+If no occurrence is found, an exception is thrown.
 */
 template <typename T>
 typename T::iterator easyfind(T container, const int toFind)
 {
-	return std::find(container.begin(), container.end(), toFind);
+	typename T::iterator itFound = std::find(container.begin(), container.end(), toFind);
+	if (itFound ==  container.end())
+		throw std::out_of_range("element not found");
+	return itFound;
 }
 
 #endif

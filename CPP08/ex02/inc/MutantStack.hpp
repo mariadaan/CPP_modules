@@ -1,35 +1,26 @@
-#ifndef SPAN_HPP
- #define SPAN_HPP
+#ifndef MUTANTSTACK_HPP
+ #define MUTANTSTACK_HPP
 
 #include <iostream>
 #include <stack>
-#include <functional>
 
 template <typename T>
 class MutantStack : public std::stack<T>
 {
 public:
-	typedef T* iterator;
-	MutantStack(void){}
-	~MutantStack(void){}
-	MutantStack(const MutantStack &other) {
-		*this = other;
-	}
-	MutantStack &operator=(const MutantStack &other) {
-		*this = other;
+
+	MutantStack(void) : std::stack<T>() {}
+	MutantStack(const MutantStack& other) : std::stack<T>(other) {}
+	MutantStack& operator=(const MutantStack& other) {
+		std::stack<T>::operator=(other);
 		return *this;
 	}
-	
-	iterator	begin()
-	{
-		iterator it = &this->top();
-		for (size_t i = 0; i < this->size() - 1; i++)
-		{
-			it--;
-		}
-	return it;
-	}
+	~MutantStack() {}
 
+	// stack iterator
+	typedef typename std::deque<T>::iterator iterator;
+	iterator	begin() { return this->c.begin(); }
+	iterator	end() { return this->c.end(); }
 };
 
 #endif

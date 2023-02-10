@@ -19,7 +19,9 @@ Cat &Cat::operator=( const Cat &cat )
 {
 	std::cout << "Cat copy assignment called" << std::endl;
 	this->_type = cat._type;
+	Brain *tempBrain = this->_brain;
 	this->_brain = new Brain(*cat._brain);
+	delete tempBrain;
 	return (*this);
 }
 
